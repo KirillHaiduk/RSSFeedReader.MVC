@@ -11,6 +11,7 @@ namespace RSSFeedReader.Logic
         {
             container.Register<INewsItemService, NewsItemService>();
             container.Register<IRssChannelService, RssChannelService>();
+            container.Register<IFeedHelper, FeedHelper>();
         }
     }
 }

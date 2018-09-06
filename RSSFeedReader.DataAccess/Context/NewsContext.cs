@@ -17,7 +17,7 @@ namespace RSSFeedReader.DataAccess.Context
     [DbConfigurationType(typeof(NewsContextConfiguration))]
     public class NewsContext : DbContext
     {
-        private const string _connectionName = "NewsConnection";
+        private const string _connectionName = "RssReaderDb";
         private const string _configFileName = "RSSFeedReader.DataAccess.dll.config";
         private static readonly string _connectionString;
 

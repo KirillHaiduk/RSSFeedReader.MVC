@@ -69,7 +69,7 @@ namespace RSSFeedReader.Logic.Services
 
             var channel = await this.rssChannelService.GetRssChannelAsync(channelId).ConfigureAwait(false);
 
-            var news = await this.feedHelper.GetNewsByUrl(channel.Url).ConfigureAwait(false);
+            var news = await this.feedHelper.GetNewsByUrlAsync(channel.Url).ConfigureAwait(false);
 
             //foreach (var item in news)
             //{

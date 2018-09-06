@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using RSSFeedReader.Web.App_Start;
 
 namespace RSSFeedReader.Web
 {
@@ -16,6 +17,7 @@ namespace RSSFeedReader.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            InjectorConfig.Configure();
         }
     }
 }

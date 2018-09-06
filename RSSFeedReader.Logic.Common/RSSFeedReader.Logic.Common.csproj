@@ -43,6 +43,7 @@
     <Compile Include="Models\NewsItemDto.cs" />
     <Compile Include="Models\RssChannelDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IFeedHelper.cs" />
     <Compile Include="Services\INewsItemService.cs" />
     <Compile Include="Services\IRssChannelService.cs" />
   </ItemGroup>

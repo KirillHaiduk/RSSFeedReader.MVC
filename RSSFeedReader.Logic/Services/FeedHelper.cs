@@ -2,12 +2,22 @@
 using System.Threading.Tasks;
 using CodeHollow.FeedReader;
 using RSSFeedReader.Logic.Common.Models;
+using RSSFeedReader.Logic.Common.Services;
 
 namespace RSSFeedReader.Logic.Services
 {
-    public class FeedHelper
+    /// <summary>
+    /// Provides methods for reading and parsing news.
+    /// </summary>
+    /// <seealso cref="RSSFeedReader.Logic.Common.Services.IFeedHelper" />
+    public class FeedHelper : IFeedHelper
     {
-        public async Task<IEnumerable<NewsItemDto>> GetNewsByUrl(string url)
+        /// <summary>
+        /// Gets the news by URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>Sequence of <see cref="NewsItemDto"/>.</returns>
+        public async Task<IEnumerable<NewsItemDto>> GetNewsByUrlAsync(string url)
         {
             var feed = await FeedReader.ReadAsync(url).ConfigureAwait(false);
 
