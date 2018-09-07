@@ -65,19 +65,10 @@ namespace RSSFeedReader.Logic.Services
         /// <inheritdoc/>
         public async Task<IEnumerable<NewsItemDto>> GetNewsByRssChannelIdAsync(int channelId)
         {
-            //var list = new List<NewsItemDto>();
-
             var channel = await this.rssChannelService.GetRssChannelAsync(channelId).ConfigureAwait(false);
 
             var news = await this.feedHelper.GetNewsByUrlAsync(channel.Url).ConfigureAwait(false);
 
-            //foreach (var item in news)
-            //{
-            //    //list.Add(mapper.Map<NewsItemDto>(item));
-            //    list.Add(item);
-            //}
-
-            //return list;
             return news;
         }
 

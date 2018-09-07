@@ -25,8 +25,7 @@ namespace RSSFeedReader.DataAccess.Migrations
             context.DbNewsChannel.AddOrUpdate(
                 c => c.Id,
                 new RssChannelDbModel { Url = "http://www.interfax.by/news/feed", Title = "Interfax", Description = "News form Interfax" },
-                new RssChannelDbModel { Url = "http://habrahabr.ru/rss/", Title = "Habrahabr", Description = "News from Habrahabr" }
-                );
+                new RssChannelDbModel { Url = "http://habrahabr.ru/rss/", Title = "Habrahabr", Description = "News from Habrahabr" });
 
             context.SaveChanges();
         }

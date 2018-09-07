@@ -45,7 +45,7 @@ namespace RSSFeedReader.Web.Controllers
 
             var newsPerPage = news.Skip((page - 1) * PageSize).Take(PageSize);
 
-            var pageInfo=new PageInfo { PageNumber = page, PageSize = PageSize, TotalItems = news.ToList().Count };
+            var pageInfo = new PageInfo { PageNumber = page, PageSize = PageSize, TotalItems = news.ToList().Count };
 
             var indexViewModel = new IndexViewModel { PageInfo = pageInfo, NewsItems = newsPerPage };
 

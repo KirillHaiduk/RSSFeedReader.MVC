@@ -1,7 +1,7 @@
-﻿using SimpleInjector;
-using SimpleInjector.Packaging;
-using RSSFeedReader.DataAccess.Common.Repositories;
+﻿using RSSFeedReader.DataAccess.Common.Repositories;
 using RSSFeedReader.DataAccess.Repositories;
+using SimpleInjector;
+using SimpleInjector.Packaging;
 
 namespace RSSFeedReader.DataAccess
 {

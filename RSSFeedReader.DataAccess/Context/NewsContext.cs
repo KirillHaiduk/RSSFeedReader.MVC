@@ -17,9 +17,9 @@ namespace RSSFeedReader.DataAccess.Context
     [DbConfigurationType(typeof(NewsContextConfiguration))]
     public class NewsContext : DbContext
     {
-        private const string _connectionName = "RssReaderDb";
-        private const string _configFileName = "RSSFeedReader.DataAccess.dll.config";
-        private static readonly string _connectionString;
+        private const string ConnectionName = "RssReaderDb";
+        private const string ConfigFileName = "RSSFeedReader.DataAccess.dll.config";
+        private static readonly string ConnectionString;
 
         /// <summary>
         /// Initializes the <see cref="NewsContext"/> class.
@@ -30,29 +30,29 @@ namespace RSSFeedReader.DataAccess.Context
             var codeBase = Assembly.GetExecutingAssembly().CodeBase;
             var uri = new UriBuilder(codeBase);
             string path = Uri.UnescapeDataString(uri.Path);
-            string fullCfgFileName = $@"{Path.GetDirectoryName(path)}\{_configFileName}";
+            string fullCfgFileName = $@"{Path.GetDirectoryName(path)}\{ConfigFileName}";
 
             var configMap = new ExeConfigurationFileMap() { ExeConfigFilename = fullCfgFileName };
             var config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
             foreach (ConnectionStringSettings connectionString in config.ConnectionStrings.ConnectionStrings)
             {
-                if (connectionString.Name.Equals(_connectionName, StringComparison.OrdinalIgnoreCase))
+                if (connectionString.Name.Equals(ConnectionName, StringComparison.OrdinalIgnoreCase))
                 {
-                    _connectionString = connectionString.ConnectionString;
+                    ConnectionString = connectionString.ConnectionString;
                     break;
                 }
             }
 
-            if (string.IsNullOrEmpty(_connectionString))
+            if (string.IsNullOrEmpty(ConnectionString))
             {
-                throw new ConfigurationErrorsException($"Cannot find connection string with name {_connectionName}");
+                throw new ConfigurationErrorsException($"Cannot find connection string with name {ConnectionName}");
             }
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NewsContext"/> class.
         /// </summary>
-        public NewsContext() : base(_connectionString)
+        public NewsContext() : base(ConnectionString)
         {
         }
 

@@ -10,7 +10,7 @@ namespace RSSFeedReader.Console
 {
     public class Program
     {
-        static readonly Container container;
+        private static readonly Container container;
 
         static Program()
         {
@@ -23,7 +23,7 @@ namespace RSSFeedReader.Console
             container.Verify(VerificationOption.VerifyOnly);
         }
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Task.WaitAll(ReadNews());
         }
@@ -33,8 +33,7 @@ namespace RSSFeedReader.Console
             var provider = new NewsProvider(
                 container.GetInstance<IRssChannelService>(),
                 container.GetInstance<INewsItemService>(),
-                container.GetInstance<IFeedHelper>()
-                );
+                container.GetInstance<IFeedHelper>());
 
             var news = await provider.GetAllNewsAsync().ConfigureAwait(false);
 

@@ -18,9 +18,7 @@ namespace RSSFeedReader.Web.App_Start
 
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
 
-            var asm = GetAssemblies();
-
-            container.RegisterPackages(asm);//etAssemblies());
+            container.RegisterPackages(GetAssemblies());
 
             MapperSetup(container);
             

@@ -24,7 +24,7 @@ namespace RSSFeedReader.Console
 
             var channels = await this.GetRssChannelsAsync();
 
-            foreach(var channel in channels)
+            foreach (var channel in channels)
             {
                 news.AddRange(await this.feedHelper.GetNewsByUrlAsync(channel.Url));
             }
